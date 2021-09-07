@@ -1,13 +1,7 @@
 ﻿using Carter;
 using Carter.ModelBinding;
-using Carter.Request;
 using LiteDB;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using UrlShortnerVideo.Models;
 
 namespace UrlShortnerVideo.CarterModules
@@ -16,10 +10,9 @@ namespace UrlShortnerVideo.CarterModules
     {
         public UrlsModule(ILiteDatabase db) : base("/urls")
         {
-            //JSON para criar a url curta
-            /*
+            /* JSON para criar a url curta
              * { url: "https://google.com" }
-             * */
+             */
             Post("/", async (req, res) =>
             {
                 var shortUrl = await req.Bind<ShortUrl>();
